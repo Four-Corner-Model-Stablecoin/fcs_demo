@@ -1,0 +1,24 @@
+[submodule "merchant"]
+	path = merchant
+	url = https://github.com/shmn7iii/fcs_wallet.git
+	branch = main
+[submodule "issuer"]
+	path = issuer
+	url = https://github.com/motoha0827/fcs_issuer.git
+	branch = main
+[submodule "brand"]
+	path = brand
+	url = https://github.com/motoha0827/fcs_brand.git
+	branch = main
+[submodule "acquirer"]
+	path = acquirer
+	url = https://github.com/motoha0827/fcs_acquirer.git
+	branch = main
+[submodule "user"]
+	path = user
+	url = https://github.com/shmn7iii/fcs_wallet.git
+	branch = main
+[submodule "did_service"]
+	path = did_service
+	url = https://github.com/shmn7iii/quattro_did_service.git
+	branch = fcs
