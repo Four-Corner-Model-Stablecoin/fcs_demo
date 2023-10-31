@@ -11,9 +11,18 @@ launch:
 	docker compose exec brand bin/setup
 	docker compose exec issuer bin/setup
 	docker compose exec acquirer bin/setup
+	make issuer/contract
+	make acquirer/contract
 
 reset:
 	docker compose down --volumes
+	make launch
+
+issuer/contract:
+	@curl -X POST http://localhost:3001/contracts >& /dev/null
+
+acquirer/contract:
+	@curl -X POST http://localhost:3001/contracts >& /dev/null
 
 user/listunspent:
 	@docker compose exec user bin/cli listunspent
