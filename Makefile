@@ -22,7 +22,7 @@ issuer/contract:
 	@curl -X POST http://localhost:3001/contracts >& /dev/null
 
 acquirer/contract:
-	@curl -X POST http://localhost:3001/contracts >& /dev/null
+	@curl -X POST http://localhost:3002/contracts >& /dev/null
 
 user/listunspent:
 	@docker compose exec user bin/cli listunspent
