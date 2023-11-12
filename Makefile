@@ -21,6 +21,9 @@ reset:
 issuer/contract:
 	@curl -X POST http://localhost:3001/contracts >& /dev/null
 
+issuer/login:
+	@open -na "Google Chrome" --args --new-window --guest http://localhost:3001/login
+
 acquirer/contract:
 	@curl -X POST http://localhost:3002/contracts >& /dev/null
 
