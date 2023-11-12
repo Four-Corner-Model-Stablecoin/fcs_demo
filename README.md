@@ -4,6 +4,12 @@ Demo network for FCS.
 
 ## Setup
 
+\* Clone this repository with `--recursive` option.
+
+```bash
+$ git clone --recursive https://github.com/four-corner-model-stablecoin/fcs_demo.git
+```
+
 ```bash
 $ make launch
 # Ports
