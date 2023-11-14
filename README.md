@@ -25,11 +25,11 @@ $ make reset
 
 ### 1. Login
 
-Visit http://localhost:3000, username: `user`.
+Visit http://localhost:3001, username: `user`.
 
 ### 2. Issue token
 
-Visit http://localhost:3000/stable_coin/new and specify amount.
+Visit http://localhost:3001/stable_coins/new and specify amount.
 
 You can find result in http://localhost:3001/issuance_transactions .
 
