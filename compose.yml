@@ -32,7 +32,6 @@ services:
   user:
     build:
       context: ./user
-    command: bash -c "bin/wallet -d && sleep 1 && tail -f log/regtest.log"
     env_file:
       - ./user/.env
     depends_on:
@@ -40,7 +39,6 @@ services:
   merchant:
     build:
       context: ./merchant
-    command: bash -c "bin/wallet -d && sleep 1 && tail -f log/regtest.log"
     env_file:
       - ./merchant/.env
     depends_on:
@@ -48,7 +46,6 @@ services:
   did_service:
     build:
       context: ./did_service
-    command: npm run start
   tapyrusd:
     image: tapyrus/tapyrusd:v0.5.1
     environment:
