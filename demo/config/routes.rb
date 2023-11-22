@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'top#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :issuance_requests, only: %i[index]
+  resources :payment_requests, only: %i[index]
+  resources :withdrawal_requests, only: %i[index]
+
+  resources :transactions, only: %i[index show]
 end

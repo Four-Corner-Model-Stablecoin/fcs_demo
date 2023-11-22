@@ -1,0 +1,51 @@
+<%= render partial: "shared/search", locals: { path: payment_requests_path } %>
+
+<%= render partial: "layouts/flash" %>
+
+<% unless @issuer_payment_request.blank? %>
+  <div class="card">
+    <h5 class="card-header">送金履歴</h5>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row" class="text-right">リクエストID</th>
+            <td><%= @issuer_payment_request["request_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ステータス</th>
+            <td><%= @issuer_payment_request["status"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">カラー識別子</th>
+            <td><%= @stable_coin["color_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">数量</th>
+            <td><%= @issuer_payment_transaction["amount"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザー名</th>
+            <td><%= @user["username"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">送金先VC</th>
+            <td><%= @issuer_payment_request["vc"][..60] + "..." %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザーウォレット残高履歴</th>
+            <td><%= link_to "#{ENV['ISSUER_URL']}/wallet_transactions", "#{ENV['ISSUER_URL']}/wallet_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">取引日時</th>
+            <td><%= @issuer_payment_transaction["transaction_time"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">トランザクション</th>
+            <td><%= link_to @issuer_payment_transaction["txid"], transactions_path(q: @issuer_payment_transaction["txid"]) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

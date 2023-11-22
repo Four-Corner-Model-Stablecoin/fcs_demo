@@ -75,6 +75,7 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     choice (0.2.0)
+    chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -212,6 +213,13 @@ GEM
     reline (0.4.0)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rqrcode (2.2.0)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.2.0)
+    rqrcode_png (0.1.5)
+      chunky_png
+      rqrcode
     rubocop (1.57.1)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -297,6 +305,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-erd
+  rqrcode
+  rqrcode_png
   rubocop
   rubocop-rails
   sprockets-rails
