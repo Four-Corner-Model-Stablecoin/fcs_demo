@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+rm -f /fcs_issuer/tmp/pids/server.pid
+
+exec "$@"

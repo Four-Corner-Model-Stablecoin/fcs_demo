@@ -5,12 +5,14 @@ launch:
 	cp envs/.env.acquirer acquirer/.env
 	cp envs/.env.user user/.env
 	cp envs/.env.merchant merchant/.env
+	cp demo/.env.sample demo/.env
 	cp -r credentials/user/* user/config/credentials
 	cp -r credentials/merchant/* merchant/config/credentials
 	docker compose up -d --build
 	docker compose exec brand bin/setup
 	docker compose exec issuer bin/setup
 	docker compose exec acquirer bin/setup
+	docker compose exec demo bin/setup
 	make issuer/contract
 	make acquirer/contract
 
