@@ -4,7 +4,7 @@ services:
       context: ./demo
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file:
-      - ./demo/.env
+      - ./envs/.env.demo
     ports:
       - "3003:3000"
     depends_on:
@@ -14,7 +14,7 @@ services:
       context: ./brand
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file:
-      - ./brand/.env
+      - ./envs/.env.brand
     ports:
       - "3000:3000"
     depends_on:
@@ -24,7 +24,7 @@ services:
       context: ./issuer
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file:
-      - ./issuer/.env
+      - ./envs/.env.issuer
     ports:
       - "3001:3000"
     depends_on:
@@ -34,7 +34,7 @@ services:
       context: ./acquirer
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file:
-      - ./acquirer/.env
+      - ./envs/.env.acquirer
     ports:
       - "3002:3000"
     depends_on:
@@ -43,14 +43,14 @@ services:
     build:
       context: ./user
     env_file:
-      - ./user/.env
+      - ./envs/.env.user
     depends_on:
       - tapyrusd
   merchant:
     build:
       context: ./merchant
     env_file:
-      - ./merchant/.env
+      - ./envs/.env.merchant
     depends_on:
       - tapyrusd
   did_service:

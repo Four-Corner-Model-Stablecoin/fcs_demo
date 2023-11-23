@@ -1,11 +1,5 @@
 
 launch:
-	cp envs/.env.brand brand/.env
-	cp envs/.env.issuer issuer/.env
-	cp envs/.env.acquirer acquirer/.env
-	cp envs/.env.user user/.env
-	cp envs/.env.merchant merchant/.env
-	cp demo/.env.sample demo/.env
 	cp -r credentials/user/* user/config/credentials
 	cp -r credentials/merchant/* merchant/config/credentials
 	docker compose up -d --build
