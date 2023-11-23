@@ -22,4 +22,24 @@ class IssuanceRequestsController < ApplicationController
     @user = response['user']
     @stable_coin = response['stable_coin']
   end
+
+  def new; end
+
+  def create
+    json = {
+      stable_coin: {
+        amount: params[:amount]
+      }
+    }.to_json
+    raw_response = Net::HTTP.post(
+      URI("#{ENV['ISSUER_URL']}/stable_coins"),
+      json,
+      'Content-Type' => 'application/json'
+    )
+    response = JSON.parse(raw_response.body)
+    issuance_request_id = response['request_id']
+
+    flash[:notice] = 'Issue success :)'
+    redirect_to issuance_requests_path(q: issuance_request_id)
+  end
 end
