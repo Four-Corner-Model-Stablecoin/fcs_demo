@@ -1,0 +1,11 @@
+<div id="flash">
+  <% if flash[:alert] || params[:flash_alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= sanitize flash[:alert] || params[:flash_alert], tags: %w(br) %>
+    </div>
+  <% elsif flash[:notice] || params[:flash_notice] %>
+    <div class="alert alert-primary" role="alert">
+      <%= sanitize flash[:notice] || params[:flash_notice], tags: %w(br) %>
+    </div>
+  <% end %>
+</div>

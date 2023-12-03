@@ -1,0 +1,57 @@
+<h1 class="mb-3">コイン発行履歴</h1>
+
+<%= render partial: "shared/search", locals: { path: issuance_requests_path } %>
+
+<%= render partial: "layouts/flash" %>
+
+<% unless @issuer_issuance_request.blank? %>
+  <div class="card">
+    <h5 class="card-header">発行履歴</h5>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row" class="text-right">リクエストID</th>
+            <td><%= @issuer_issuance_request["request_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ステータス</th>
+            <td><%= @issuer_issuance_request["status"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">カラー識別子</th>
+            <td><%= @stable_coin["color_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">数量</th>
+            <td><%= @issuer_issuance_transaction["amount"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザー名</th>
+            <td><%= @user["username"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザーウォレット残高履歴</th>
+            <td><%= link_to "http://localhost:3001/wallet_transactions", "http://localhost:3001/wallet_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザー現金残高履歴</th>
+            <td><%= link_to "http://localhost:3001/account_transactions", "http://localhost:3001/account_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">取引日時</th>
+            <td><%= @issuer_issuance_transaction["transaction_time"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">発行トランザクション</th>
+            <td><%= link_to @issuer_issuance_transaction["txid"], transactions_path(q: @issuer_issuance_transaction["txid"]) %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <%= image_tag "transaction-hakkou.png", size: "720", class: "img-fluid"%>
+      </div>
+    </div>
+  </div>
+<% end %>

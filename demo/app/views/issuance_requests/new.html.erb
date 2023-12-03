@@ -1,0 +1,14 @@
+<h1>コイン発行</h1>
+
+<div class="container mt-3">
+  <%= form_with(url: issuance_requests_path) do |f| %>
+    <div class="d-flex">
+      <%= f.number_field :amount, class: "form-control", required: "required", placeholder: "発行数量" %>
+      <%= f.submit "発行", class: "btn btn-outline-success mx-1" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center">
+  <%= image_tag "hakkou.png", size: "720", class: "img-fluid"%>
+</div>

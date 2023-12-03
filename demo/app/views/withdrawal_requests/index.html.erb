@@ -1,0 +1,67 @@
+<%= render partial: "shared/search", locals: { path: withdrawal_requests_path } %>
+
+<%= render partial: "layouts/flash" %>
+
+<% unless @acquirer_withdrawal_request.blank? %>
+  <div class="card">
+    <h5 class="card-header">償還履歴</h5>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row" class="text-right">リクエストID</th>
+            <td><%= @acquirer_withdrawal_request["request_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">ステータス</th>
+            <td><%= @acquirer_withdrawal_request["status"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">カラー識別子</th>
+            <td><%= @stable_coin["color_id"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">数量</th>
+            <td><%= @acquirer_withdrawal_transaction["amount"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">加盟店名</th>
+            <td><%= @merchant["merchant_name"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">加盟店現金残高履歴</th>
+            <td><%= link_to "http://localhost:3002/account_transactions", "http://localhost:3002/account_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">イシュア現金残高履歴</th>
+            <td><%= link_to "http://localhost:3000/accounts/1/account_transactions", "http://localhost:3000/accounts/1/account_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">アクワイアラ現金残高履歴</th>
+            <td><%= link_to "http://localhost:3000/accounts/2/account_transactions", "http://localhost:3000/accounts/2/account_transactions" %></td>
+          </tr>
+          <tr>
+            <th scope="row">取引日時</th>
+            <td><%= @acquirer_withdrawal_transaction["transaction_time"] %></td>
+          </tr>
+          <tr>
+            <th scope="row">トランザクション（アクワイアラ->ブランド）</th>
+            <td><%= link_to @acquirer_withdrawal_transaction["merchant_to_brand_txid"], transactions_path(q: @acquirer_withdrawal_transaction["merchant_to_brand_txid"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row">トランザクション（ブランド->イシュア）</th>
+            <td><%= link_to @acquirer_withdrawal_transaction["brand_to_issuer_txid"], transactions_path(q: @acquirer_withdrawal_transaction["brand_to_issuer_txid"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row">トランザクション（焼却）</th>
+            <td><%= link_to @acquirer_withdrawal_transaction["burn_txid"], transactions_path(q: @acquirer_withdrawal_transaction["burn_txid"]) %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <%= image_tag "transaction-syoukan.png.png", size: "720", class: "img-fluid"%>
+      </div>
+    </div>
+  </div>
+<% end %>
