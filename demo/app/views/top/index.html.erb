@@ -60,7 +60,6 @@
           </svg>
           <%= link_to "fcs_wallet", "https://github.com/four-corner-model-stablecoin/fcs_wallet", class: "card-link" %>
         </h6>
-        <%= link_to "docker compose exec user bin/cli", "docker compose exec user bin/cli", class: "card-link" %>
       </div>
     </div>
     <div class="col" style="width: 18rem;">
@@ -75,7 +74,6 @@
           </svg>
           <%= link_to "fcs_wallet", "https://github.com/four-corner-model-stablecoin/fcs_wallet", class: "card-link" %>
         </h6>
-        <%= link_to "docker compose exec merchant bin/cli", "docker compose exec merchant bin/cli", class: "card-link" %>
       </div>
     </div>
   </div>
@@ -85,20 +83,17 @@
   <ol class="list-group list-group-numbered">
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">発行</div>
-        <%= link_to "ステーブルコインを発行する ↗︎", new_issuance_request_path, target: '_blank', class: "card-link" %>
+        <%= link_to "ステーブルコインを発行する ↗︎", new_issuance_request_path, target: '_blank', class: "fw-bold" %>
       </div>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">送金</div>
-        Content for list item
+        <%= link_to "ステーブルコインを送金する ↗︎", new_payment_request_path, target: '_blank', class: "fw-bold" %>
       </div>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">償還</div>
-        Content for list item
+        <%= link_to "ステーブルコインを償還する ↗︎", new_withdrawal_request_path, target: '_blank', class: "fw-bold" %>
       </div>
     </li>
   </ol>

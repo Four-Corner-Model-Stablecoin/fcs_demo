@@ -22,4 +22,6 @@ class PaymentRequestsController < ApplicationController
     @user = response['user']
     @stable_coin = response['stable_coin']
   end
+
+  def new; end
 end

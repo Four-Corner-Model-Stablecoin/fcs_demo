@@ -38,4 +38,6 @@ class WithdrawalRequestsController < ApplicationController
     @issuer_withdrawal_transaction = response['transaction']
     @stable_coin = response['stable_coin']
   end
+
+  def new; end
 end
