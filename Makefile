@@ -9,11 +9,14 @@ launch:
 	docker compose exec demo bin/setup
 	make issuer/contract
 	make acquirer/contract
-	@open -na "Google Chrome" --args --new-window --guest http://localhost:3003
+	make open
 
 reset:
 	docker compose down --volumes
 	make launch
+
+open:
+	@open -na "Google Chrome" --args --new-window --guest http://localhost:3003
 
 issuer/contract:
 	@curl -X POST http://localhost:3001/contracts >& /dev/null
