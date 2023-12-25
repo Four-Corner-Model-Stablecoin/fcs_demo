@@ -1,4 +1,6 @@
-<%= render partial: "shared/search", locals: { path: withdrawal_requests_path } %>
+<h1 class="mb-3">コイン償還履歴</h1>
+
+<%= render partial: "shared/search", locals: { path: withdrawal_requests_path, placeholder: "Request ID" } %>
 
 <%= render partial: "layouts/flash" %>
 
@@ -60,7 +62,7 @@
       </table>
 
       <div class="text-center">
-        <%= image_tag "transaction-syoukan.png.png", size: "720", class: "img-fluid"%>
+        <%= image_tag "transaction-syoukan.png", size: "720", class: "img-fluid"%>
       </div>
     </div>
   </div>

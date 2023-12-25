@@ -1,7 +1,7 @@
 <div class="searchBox mb-3">
   <%= form_with(url: path, method: :get, local: true) do |f| %>
     <div class="d-flex">
-      <%= f.text_field :q, class: "form-control", required: "required", placeholder: "Request ID", value: params[:q] %>
+      <%= f.text_field :q, class: "form-control", required: "required", placeholder: placeholder, value: params[:q] %>
       <%= f.submit "検索", class: "btn btn-outline-success mx-1" %>
     </div>
   <% end %>
